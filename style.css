@@ -86,3 +86,9 @@ button {
   border:0;
   font-weight:100;
 }
+
+.time {
+  color:#6F3B6A;
+  font-size:30px;
+  text-align:center;
+}

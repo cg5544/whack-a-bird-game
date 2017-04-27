@@ -38,13 +38,16 @@ function popUp() {
 
 
 function startGame() {
+  startTimer();
+
   // set score back to 0 when game starts
   scoreBoard.textContent = 0;
   timeUp = false;
   score = 0;
   popUp();
 
-  setTimeout(() => timeUp = true, 12000);
+  setTimeout(() => timeUp = true, 60000);
+  // stopTimer();
 }
 
 function hit(e) {
@@ -61,4 +64,29 @@ function hit(e) {
   scoreBoard.textContent = score;
 }
 
+function startTimer() {
+  let presentTime = document.getElementById('timer').innerHTML;
+  let timeArray = presentTime.split(/[:]+/);
+  let m = timeArray[0];
+  let s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  document.getElementById('timer').innerHTML = m + ":" + s;
+
+  // run the timer until 1 min is up
+  if (s > 0)
+    { setTimeout(startTimer, 1000) };
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
+}
+
+function stopTimer() {
+  document.getElementById('timer').innerHTML =
+  01 + ":" + 00;
+}
+
 moles.forEach(mole => mole.addEventListener('click', hit));
+// startTimer();
