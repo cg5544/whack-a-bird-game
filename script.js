@@ -46,7 +46,7 @@ function startGame() {
   score = 0;
   popUp();
 
-  setTimeout(() => timeUp = true, 60000);
+  setTimeout(() => stopTimer(), 60000);
   // stopTimer();
 }
 
@@ -84,6 +84,7 @@ function checkSecond(sec) {
 }
 
 function stopTimer() {
+  timeUp = true
   document.getElementById('timer').innerHTML =
   01 + ":" + 00;
 }
