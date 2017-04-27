@@ -73,3 +73,16 @@ h2 {
 .hole.up .mole {
   top: 0;
 }
+
+button {
+  margin:auto;
+  display:block;
+  padding:16px 32px;
+  font-family:helvetica;
+  font-size:16px;
+  font-weight:100;
+  color:#fff;
+  background: #D1366F;
+  border:0;
+  font-weight:100;
+}
